@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "flytre_lib",
+  "id": "resource_core",
   "version": "${version}",
-  "name": "FlytreLib",
-  "description": "Common Code for Flytre mods",
+  "name": "Resource Core",
+  "description": "Making it easier to add content!",
   "authors": [
     "Flytre"
   ],
@@ -11,14 +11,14 @@
     "website": "https://www.flytre.net"
   },
   "license": "Custom License",
-  "icon": "assets/flytre_lib/icon.png",
+  "icon": "assets/resource_core/icon.png",
   "environment": "*",
   "entrypoints": {
     "client": [
-      "net.flytre.flytre_lib.client.FlytreLibClient"
+      "net.flytre.resource_core.client.ResourceCoreClient"
     ],
     "main": [
-      "net.flytre.flytre_lib.FlytreLib"
+      "net.flytre.resource_core.ResourceCore"
     ]
   },
   "mixins": [
