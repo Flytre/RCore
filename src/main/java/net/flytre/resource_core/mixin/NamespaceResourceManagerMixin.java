@@ -18,7 +18,7 @@ import java.util.List;
 public class NamespaceResourceManagerMixin {
 
     @Inject(method = "getAllResources", at = @At(value = "INVOKE", target = "Ljava/util/List;isEmpty()Z"), cancellable = true, locals = LocalCapture.CAPTURE_FAILSOFT)
-    public void flytre_lib$createBlockstate(Identifier id, CallbackInfoReturnable<List<Resource>> cir, List<Resource> list) {
+    public void resource_core$createBlockstate(Identifier id, CallbackInfoReturnable<List<Resource>> cir, List<Resource> list) {
         if (list.isEmpty() && id.getPath().startsWith("blockstates") && RegistryUtils.getInferredBoilerNamespaces().contains(id.getNamespace())) {
             list.add(new FakeBlockStateResource(id));
         }

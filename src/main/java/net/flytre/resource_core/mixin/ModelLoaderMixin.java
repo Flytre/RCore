@@ -24,7 +24,7 @@ public class ModelLoaderMixin {
     private ResourceManager resourceManager;
 
     @Inject(method = "loadModelFromJson", at = @At("HEAD"), cancellable = true)
-    public void flytre_lib$defaultModel(Identifier id, CallbackInfoReturnable<JsonUnbakedModel> cir) {
+    public void resource_core$defaultModel(Identifier id, CallbackInfoReturnable<JsonUnbakedModel> cir) {
         if (id.getPath().startsWith("builtin/")) {
             return;
         }

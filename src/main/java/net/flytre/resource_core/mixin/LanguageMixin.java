@@ -20,7 +20,7 @@ public class LanguageMixin {
 
 
     @Inject(method = "load", at = @At(value = "INVOKE", target = "Lcom/google/gson/JsonObject;entrySet()Ljava/util/Set;"), locals = LocalCapture.CAPTURE_FAILSOFT)
-    private static void flytre_lib$defaultTranslation(InputStream inputStream, BiConsumer<String, String> entryConsumer, CallbackInfo ci, JsonObject jsonObject) {
+    private static void resource_core$defaultTranslation(InputStream inputStream, BiConsumer<String, String> entryConsumer, CallbackInfo ci, JsonObject jsonObject) {
         var set = RegistryUtils.getInferredBoilerNamespaces();
         Registry.ITEM.getIds().stream().filter(i -> set.contains(i.getNamespace())).forEach(i -> {
             String key = "item." + i.getNamespace() + "." + i.getPath();

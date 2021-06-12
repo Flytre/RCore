@@ -22,7 +22,7 @@
     ]
   },
   "mixins": [
-    "flytre_lib.mixins.json"
+    "resource_core.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.11.1",
