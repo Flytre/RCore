@@ -13,20 +13,11 @@ import java.util.logging.Logger;
 
 public class ResourceCore implements ModInitializer {
 
-    public static final Logger LOGGER = Logger.getLogger("Flytre Lib");
+    public static final Logger LOGGER = Logger.getLogger("Resource Core");
 
-
-    public static final Supplier<Item> ITEM_MAKER = () -> new Item(new FabricItemSettings().group(ItemGroup.MISC));
-
-    public static final Item BLUESTONE = ITEM_MAKER.get();
-    public static final Block DECOR = new Block(FabricBlockSettings.copy(Blocks.DIAMOND_BLOCK));
 
     @Override
     public void onInitialize() {
-
-        RegistryUtils.registerBlocks(ResourceCore.class, "flytre_lib", ItemGroup.MISC);
-        RegistryUtils.registerItems(ResourceCore.class, "flytre_lib");
-        RegistryUtils.registerBoilerNamespace("flytre_lib");
     }
 
 }

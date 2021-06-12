@@ -19,7 +19,7 @@ public class RegistryUtils {
 
     private static final Set<String> INFERRED_BOILER_NAMESPACES = new HashSet<>();
 
-    public static void registerBlocks(Class<?> clazz, String namespace, @Nullable ItemGroup group) {
+    public static void registerBlocks(Class<?> clazz, String namespace, @Nullable ItemGroup group, boolean registerBlockItems) {
         Field[] declaredFields = clazz.getDeclaredFields();
         List<Field> blockFields = new ArrayList<>();
         for (Field field : declaredFields) {
@@ -32,7 +32,8 @@ public class RegistryUtils {
                         Identifier id = new Identifier(namespace, i.getName().toLowerCase(Locale.ROOT));
                         if (!Registry.BLOCK.containsId(id)) {
                             Registry.register(Registry.BLOCK, id, (Block) i.get(null));
-                            Registry.register(Registry.ITEM, id, new BlockItem((Block) i.get(null), new Item.Settings().group(group == null ? ItemGroup.MISC : group)));
+                            if (registerBlockItems)
+                                Registry.register(Registry.ITEM, id, new BlockItem((Block) i.get(null), new Item.Settings().group(group == null ? ItemGroup.MISC : group)));
                         } else
                             ResourceCore.LOGGER.warning("Tried to register block " + id + " multiple times.");
                     } catch (IllegalAccessException e) {
